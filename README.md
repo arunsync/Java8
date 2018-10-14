@@ -12,38 +12,64 @@
 		7. Stream API
 		8. Date and Time API(Joda Time API)
 		9. Etc..
-			
-
-default method
---------------
-	1. It is available from Java 8 only and it is available in FunctionalInterface.
-	2. default method can have implementation but the classes implemented the interface no need to implement this method. If they want they can override.
-	3. It can't override the methods in Object class(Eg : toString(), hashCode()). It is not needed becaues Object class methods are already available in all java classes.
-	4. default keyword is not a modifer. It will be used in 2 places in Java. Switch statements and default method in the interfaces.
-	5. public keyword infront of default keyword is perfectly valid because any method in Interface is public by default. - Eg : public default void toPrint() {s.o.p ("print");}
-	6. Default method can be called by using the functional interface reference which was aquired from lambda expressions eg:
-		TestInterface i = name-> System.out.println("My Name is:"+name);
-			i.print("Arun"); // this is a default method in TestInterface 
+Lambda expression
+-----------------
+Lambda expression: 
+	1. To Enable functional programming in Java (Eg : a=f(), f(f1);  For function, you can pass another function as a arguement).
+	2. It is a anonymous(nameless) function. Not having name, return type, modifiers
+	Having this we can write simpe code
 	
-	
-Interface methods in Java 8
----------------------------
-	1. public and abstract
-	2. default
-	3. static
-	
-	
-	
-	
-Functional Interface
---------------------
+Programming languages which use Lambda expressions today
+	1. Python
+	2. Ruby
+	3. Javascript
+	4. C#
+	6. C, C++
+	5. Etc...
 
+Example 1:
 
+	public void m1() {
+			System.out.println("Hello");
+		}
 
+	Remove method name, return type and modifier.. only below stmts will be there
+		() {
+			System.out.println("Hello");
+		}
+	Lambda expression for the above method with arrow symbol:
+		() -> { System.out.println("Hello"); }
 
+		if there is only one stmt, curly braces are not required
+	Final lambda expression
+		()-> System.out.println("Hello");
 
-Lambda expression examples
---------------------------
+Example 2:
+
+	public void m1(int a, int b) {
+			System.out.println(a+b);
+		}
+	Lambda expression for the above method is:
+		(int a, int b) -> System.out.println(a+b);
+	
+	Based on the cotext,compiler can able to guess the parameter data type
+		(a,b) -> System.out.println(a+b);
+Example 3:
+	
+	public int square(int n) {
+			return n * n;
+		}
+	Lambda expression for the above method is:
+		(n) -> return n * n;
+	
+	if only one arg is there, paranthesis are optional. If there are more than 1 args, paranthesis are required.
+		n -> return n * n;
+	
+	compiler is going to guess we are returning n * n, so return stmt is not needed
+		n -> n * n;
+	
+
+Examples:
 1.
 	@FunctionalInterface
 	public interface TestInterface {
@@ -97,7 +123,37 @@ Lambda expression examples
 			i.print("Arun");
 		}
 	}
+				
+
+default method
+--------------
+	1. It is available from Java 8 only and it is available in FunctionalInterface.
+	2. default method can have implementation but the classes implemented the interface no need to implement this method. If they want they can override.
+	3. It can't override the methods in Object class(Eg : toString(), hashCode()). It is not needed becaues Object class methods are already available in all java classes.
+	4. default keyword is not a modifer. It will be used in 2 places in Java. Switch statements and default method in the interfaces.
+	5. public keyword infront of default keyword is perfectly valid because any method in Interface is public by default. - Eg : public default void toPrint() {s.o.p ("print");}
+	6. Default method can be called by using the functional interface reference which was aquired from lambda expressions eg:
+		TestInterface i = name-> System.out.println("My Name is:"+name);
+			i.print("Arun"); // this is a default method in TestInterface 
 	
+	
+Interface methods in Java 8
+---------------------------
+	1. public and abstract
+	2. default
+	3. static
+	
+	
+	
+	
+Functional Interface
+--------------------
+
+
+
+
+
+
 
 Multipe Inheritance
 -------------------
