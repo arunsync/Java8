@@ -1,4 +1,18 @@
-# Java8
+# Java8 New main features
+--------------------------
+		1. Lambda Expressions
+		2. Functional Interfaces
+		3. Default Methods
+	Predefined Functional Interfaces
+		4. Predicates
+		5. Functions
+			Supplier
+			Consumer
+		6. Double Colon Operator (Constructor and Method references)
+		7. Stream API
+		8. Date and Time API(Joda Time API)
+		9. Etc..
+			
 
 default method
 --------------
