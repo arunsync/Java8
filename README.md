@@ -67,8 +67,62 @@ Example 3:
 	
 	compiler is going to guess we are returning n * n, so return stmt is not needed
 		n -> n * n;
-	
 
+Conclusions:
+	1. Any number of arguments (0, 1, 2 ...)
+	2. If only one arg lambda expression is there, paranthesis are optional
+	3. (a,b)->sop(a+b); Compiler will guess the type of the arguements
+	4. If multipe lines are there, curly braces are required
+		(a,b)->{ sop(a+b);
+			sop(a-b);
+			sop(a*b) }
+	5. To call the Lambda expressions, Functional interface reference is required. Whereever the fuctional interfaces are there, threr only Lambda expressions can be used.
+		
+
+How to call/Invoke the lambda expression:
+-------------------------------------------
+	Functional Interfaces
+	---------------------
+		1. An interface is having single Abstract method(SAM) is called Functional interface.
+		2. It is the concept where you can use Lambda expression.
+		3. If there is no functional interface, we can't use lambda expression.
+		4. Special annotation came indicate explicitly for funcation interface is @FunctionalInterface. It is optional to annotate if it has only one Abstrace method.
+		5. In general, interface methods are public and abstract by default. This rule is gone after Java 8. An interface can have concrete methods also.
+		6. If Lambda expression is not there, we need to create a child class which imlements the interface(functional), override the methods providing implementation and then invoke the class method from calling class.
+		Eg :
+			Interface Interf {
+				void m1();
+			}
+			class Demo implements Interf {
+				public void m1() {
+					sop("m1 implementation");
+				}
+			}
+			class Test {
+				public static void main(String[] args) {
+					Interf intf = new Demo(); // or Demo d = new Demo();
+					intf.m1(); // or d.m1();
+				}
+			}
+			
+	These interfaces contains only one method:
+		Runnable==> run ()
+		Callable==> call()
+		Comparable==> compareTo()
+
+From Java 1.8
+	1. Inside interface, we can have Default and Static methods also with implementation, the functional interface restriction is only applicable for only Abstract method.
+	2. Functional interface can have any number of static and default methods.
+	3. Child interface is also FunctionalInterface when it does't have any methods but it extends the FunctionalIterface parent class.
+		@FunctionalInerface
+		interface A {
+			public void m1();
+		}
+		@FunctionalInterface
+		interface B extends A {
+		}
+	4. To invoke Lambda expression, some reference must be required. That is functional inteface.
+	
 Examples:
 1.
 	@FunctionalInterface
@@ -146,8 +200,7 @@ Interface methods in Java 8
 	
 	
 	
-Functional Interface
---------------------
+
 
 
 
